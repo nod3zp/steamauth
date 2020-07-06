@@ -9,6 +9,17 @@ use nod3zp\Auth\SteamAuth;
 use nod3zp\Auth\Userinfo;
 ```
 
+Set Config in **steamauth.php**
+```php
+class Config
+{
+    public $apikey = ''; //API KEY FROM https://steamcommunity.com/dev/apikey
+    public $domainname = 'localhost'; //SERVER DOMAIN
+    public $logoutpage = '/'; //PAGE AFTER LOGOUT
+    public $loginpage = '/'; //PAGE AFTER LOGIN
+}
+```
+
 User status
 ```php
 if(SteamAuth::IsAuth())
