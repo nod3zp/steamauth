@@ -9,7 +9,7 @@ use nod3zp\Auth\SteamAuth;
 use nod3zp\Auth\Userinfo;
 ```
 
-Check if user Auth:
+User status
 ```php
 if(SteamAuth::IsAuth())
 {
