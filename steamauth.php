@@ -7,7 +7,7 @@ session_start();
 
 class Config
 {
-    public $apikey = '692388F6DA6B8C593853AE7ED8A82D2F';
+    public $apikey = '';
     public $domainname = 'localhost';
     public $logoutpage = '/';
     public $loginpage = '/';
