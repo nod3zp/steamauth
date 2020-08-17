@@ -20,25 +20,25 @@ $steam = new SteamAuth([
 
 User status
 ```php
-if($steam->IsAuth())
+if($steam->isAuth())
 {
-  var_dump($_SESION['steamuser']);
+    var_dump($_SESSION['steamuser']);
 } else {
-  echo "NOT AUTHED";
+    $steam->login();
 }
 ```
 
 Login
 ```php
-SteamAuth::login();
+$steam->login();
 ```
 
 Logout
 ```php
-SteamAuth::logout();
+$steam->logout();
 ```
 
 Update
 ```php
-SteamAuth::update();
+$steam->update();
 ```
