@@ -40,4 +40,4 @@ Update
 ```php
 $steam->update();
 ```
-![Based on](https://avatars1.githubusercontent.com/u/1754854?s=460&u=03250489d814fa23cba6ae7d7143eb8d961d3b65&v=4)
+Based on @SmItH197 Library
