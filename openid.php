@@ -1,7 +1,5 @@
 <?php
 
-namespace nod3zp\Auth;
-
 class LightOpenID
 {
     public $returnUrl

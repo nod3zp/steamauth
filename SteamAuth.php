@@ -2,6 +2,9 @@
 
 namespace nod3zp;
 
+require_once(__DIR__ . '/openid.php');
+use LightOpenID;
+
 ob_start();
 session_start();
 
@@ -43,14 +46,13 @@ class SteamAuth
         }
     }
 
-    public static function isAuth()
+    public function isAuth()
     {
         return (isset($_SESSION['steamid']) && isset($_SESSION['steamuser']));
     }
 
-    public static function login()
+    public function login()
     {
-        require(__DIR__ . '/openid.php');
         try {
             $openid = new LightOpenID($this->domain);
             
@@ -89,14 +91,14 @@ class SteamAuth
         }
     }
 
-    public static function logout()
+    public function logout()
     {
         session_unset();
         session_destroy();
         header('Location: '.$this->logoutpage);
     }
 
-    public static function update()
+    public function update()
     {
         unset($_SESSION['steam_uptodate']);
         header('Location: '.$_SERVER['REQUEST_URI']);
