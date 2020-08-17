@@ -3,29 +3,27 @@ Download Repository and unpack files (steamauth.php and openid.php)
 Require and use lib
 
 ```php
-require('steamauth.php');
+require_once(__DIR__ . '/SteamAuth.php');
 
-use nod3zp\Auth\SteamAuth;
-use nod3zp\Auth\Userinfo;
+use nod3zp\SteamAuth;
+use nod3zp\Userinfo;
 ```
 
-Set Config in **steamauth.php**
+Define **steamapi**
 ```php
-class Config
-{
-    public $apikey = ''; //API KEY FROM https://steamcommunity.com/dev/apikey
-    public $domainname = 'localhost'; //SERVER DOMAIN
-    public $logoutpage = '/'; //PAGE AFTER LOGOUT
-    public $loginpage = '/'; //PAGE AFTER LOGIN
-}
+$steam = new SteamAuth([
+    'apikey' => 'XX...XX',
+    'domain' => 'steam-test.loc',
+    'logoutpage' => '/callback/logout',
+    'loginpage' => '/callback/login'
+]);
 ```
 
 User status
 ```php
-if(SteamAuth::IsAuth())
+if($steam->IsAuth())
 {
-  $userinfo = new Userinfo();
-  echo "AUTHED: $userinfo->personaname";
+  var_dump($_SESION['steamuser']);
 } else {
   echo "NOT AUTHED";
 }
