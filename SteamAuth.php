@@ -5,19 +5,6 @@ namespace nod3zp;
 ob_start();
 session_start();
 
-class Userinfo
-{
-    public function __construct($apikey)
-    {
-        if (empty($_SESSION['steam_uptodate']) or empty($_SESSION['steamuser'])) {
-            $url = file_get_contents("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=".$apikey."&steamids=".$_SESSION['steamid']); 
-            $content = json_decode($url, true);
-            $_SESSION['steamuser'] = $content['response']['players'][0];
-            $_SESSION['steam_uptodate'] = time();
-        }
-    }
-}
-
 class SteamAuth
 {
     private $domain;
@@ -47,6 +34,13 @@ class SteamAuth
         $this->apikey = $config['apikey'];
         $this->logoutpage = $config['logoutpage'];
         $this->loginpage = $config['loginpage'];
+
+        if ((!isset($_SESSION['steam_uptodate']) || !isset($_SESSION['steamuser'])) && isset($_SESSION['steamid'])) {
+            $url = file_get_contents("https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=".$this->apikey."&steamids=".$_SESSION['steamid']); 
+            $content = json_decode($url, true);
+            $_SESSION['steamuser'] = $content['response']['players'][0];
+            $_SESSION['steam_uptodate'] = time();
+        }
     }
 
     public static function isAuth()
