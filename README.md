@@ -4,13 +4,11 @@ Require and use lib
 
 ```php
 require_once(__DIR__ . '/SteamAuth.php');
-
-use nod3zp\SteamAuth;
 ```
 
 Define **steamapi**
 ```php
-$steam = new SteamAuth([
+$steam = new nod3zp\SteamAuth([
     'apikey' => 'XX...XX',
     'domain' => 'steam-test.loc',
     'logoutpage' => '/callback/logout',
