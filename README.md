@@ -6,7 +6,6 @@ Require and use lib
 require_once(__DIR__ . '/SteamAuth.php');
 
 use nod3zp\SteamAuth;
-use nod3zp\Userinfo;
 ```
 
 Define **steamapi**
